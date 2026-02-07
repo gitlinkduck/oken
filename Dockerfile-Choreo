@@ -1,8 +1,12 @@
 FROM ghcr.io/m1k1o/neko/firefox:latest
 
 USER root
+
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# 设置 neko 运行时使用的用户（内部降权）
+ENV NEKO_MEMBER_UID=10014
+ENV NEKO_MEMBER_GID=10014
