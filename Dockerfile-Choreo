@@ -5,7 +5,6 @@ RUN apk add --no-cache \
     novnc \
     chromium
 # 创建非 root 用户
-RUN adduser -D -u 1001 appuser
 USER 10014
 
 EXPOSE 6080
